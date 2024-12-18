@@ -1,0 +1,24 @@
+<!-- Days Buttons -->
+<div class="day-buttons">
+  <button class="day-button" (click)="setDay('Sunday')">Sunday</button>
+  <button class="day-button" (click)="setDay('Monday')">Monday</button>
+  <button class="day-button" (click)="setDay('Tuesday')">Tuesday</button>
+  <button class="day-button" (click)="setDay('Wednesday')">Wednesday</button>
+  <button class="day-button" (click)="setDay('Thursday')">Thursday</button>
+  <button class="day-button" (click)="setDay('Friday')">Friday</button>
+  <button class="day-button" (click)="setDay('Saturday')">Saturday</button>
+</div>
+
+@for (item of planService.plansSig(); track $index) { @if(item.day === day()){
+@for (post of postService.postSig(); track $index) { @if (post.id === item.pid)
+{
+<h1 class="title">{{ post.category }}</h1>
+<div class="card-container">
+  <app-card
+    [post]="post"
+    [comments]="this.commentService.commentSig()"
+    [users]="this.userService.userSig()"
+    [day]="this.day()"
+  ></app-card>
+</div>
+} } } }

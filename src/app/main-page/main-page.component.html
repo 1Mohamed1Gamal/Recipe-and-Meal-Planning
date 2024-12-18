@@ -1,0 +1,7 @@
+@for (item of postService.postSig(); track $index) {
+<app-post-detail
+  [post]="item"
+  [comments]="this.commentService.commentSig()"
+  [users]="this.userService.userSig()"
+></app-post-detail>
+}

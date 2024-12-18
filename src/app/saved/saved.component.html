@@ -1,0 +1,53 @@
+<div class="filter-controls">
+  <label for="filter-method">Filter By</label>
+  <select
+    id="filter-method"
+    [(ngModel)]="selectedFilter"
+    (change)="applyFilters()"
+  >
+    <option value="search">Search</option>
+    <option value="cuisine">Cuisine</option>
+    <option value="category">Category</option>
+    <option value="all">All</option>
+  </select>
+
+  <div *ngIf="selectedFilter === 'search'">
+    <input
+      type="text"
+      placeholder="Search posts"
+      [(ngModel)]="filters.search"
+      (input)="applyFilters()"
+    />
+  </div>
+
+  <div *ngIf="selectedFilter === 'cuisine'">
+    <input
+      type="text"
+      placeholder="Enter cuisine"
+      [(ngModel)]="filters.cuisine"
+      (input)="applyFilters()"
+    />
+  </div>
+
+  <div *ngIf="selectedFilter === 'category'">
+    <select [(ngModel)]="filters.category" (change)="applyFilters()">
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+      <option value="snacks">Snacks</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="filteredPosts.length > 0">
+  <div *ngFor="let post of filteredPosts; trackBy: trackByPostId">
+    <app-post-detail
+      [post]="post"
+      [comments]="commentService.commentSig()"
+      [users]="userService.userSig()"
+    ></app-post-detail>
+  </div>
+</div>
+<div *ngIf="filteredPosts.length === 0">
+  No posts available for the selected filters.
+</div>

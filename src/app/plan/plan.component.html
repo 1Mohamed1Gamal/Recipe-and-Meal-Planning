@@ -1,0 +1,66 @@
+<!-- Days Buttons -->
+<div class="day-buttons">
+  <button class="day-button" (click)="setDay('Sunday')">Sunday</button>
+  <button class="day-button" (click)="setDay('Monday')">Monday</button>
+  <button class="day-button" (click)="setDay('Tuesday')">Tuesday</button>
+  <button class="day-button" (click)="setDay('Wednesday')">Wednesday</button>
+  <button class="day-button" (click)="setDay('Thursday')">Thursday</button>
+  <button class="day-button" (click)="setDay('Friday')">Friday</button>
+  <button class="day-button" (click)="setDay('Saturday')">Saturday</button>
+</div>
+
+<!-- Title -->
+<h1 class="title">BreakFast</h1>
+
+<!-- Card Container -->
+
+<div class="card-container">
+  @for (item of postService.postSig(); track $index) { @if(item.category ==
+  'breakfast'){
+  <app-card
+    [post]="item"
+    [comments]="this.commentService.commentSig()"
+    [users]="this.userService.userSig()"
+    [day]="this.day()"
+  ></app-card>
+  }}
+</div>
+
+<h1 class="title">Dinner</h1>
+<div class="card-container">
+  @for (item of postService.postSig(); track $index) { @if(item.category ==
+  'dinner'){
+  <app-card
+    [post]="item"
+    [comments]="this.commentService.commentSig()"
+    [users]="this.userService.userSig()"
+    [day]="this.day()"
+  ></app-card>
+  }}
+</div>
+
+<h1 class="title">Lunch</h1>
+<div class="card-container">
+  @for (item of postService.postSig(); track $index) { @if(item.category ==
+  'lunch'){
+  <app-card
+    [post]="item"
+    [comments]="this.commentService.commentSig()"
+    [users]="this.userService.userSig()"
+    [day]="this.day()"
+  ></app-card>
+  }}
+</div>
+
+<h1 class="title">Snacks</h1>
+<div class="card-container">
+  @for (item of postService.postSig(); track $index) { @if(item.category ==
+  'snacks'){
+  <app-card
+    [post]="item"
+    [comments]="this.commentService.commentSig()"
+    [users]="this.userService.userSig()"
+    [day]="this.day()"
+  ></app-card>
+  }}
+</div>

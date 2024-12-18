@@ -1,0 +1,121 @@
+<main class="browser">
+  <article class="food-card">
+    <div class="content-wrapper">
+      <div class="layout-grid">
+        <div class="user">
+          @for (user of users(); track $index) { @if(user.uid == post()?.uid!){
+          <aside>
+            <img
+              loading="lazy"
+              src="{{ user.imageURL }}"
+              class="thumbnail-round"
+              alt="Pizza thumbnail 2"
+            />
+            <button class="bla" id="blabla" (click)="deletebutton()"></button>
+            <h4 class="nameofuser">
+              {{ user.username }}
+            </h4>
+          </aside>
+          } }
+        </div>
+      </div>
+      <section class="main-content">
+        <div class="info">
+          <h1 class="food-title">{{ post()?.cuisine }}</h1>
+          <h1 class="food-title">{{ post()?.category }}</h1>
+        </div>
+        <h1 class="food-title">{{ post()?.name }}</h1>
+
+        <div class="content-grid">
+          <section class="food-info">
+            <img
+              loading="lazy"
+              [src]="post()?.imageURL"
+              class="food-image"
+              alt="Italian Pizza"
+            />
+            <div class="rating-container">
+              <button
+                *ngFor="let star of [1, 2, 3, 4, 5]"
+                [class.filled]="star <= post()?.review!"
+                class="rating-star"
+                [attr.data-value]="star"
+              >
+                ★
+              </button>
+            </div>
+          </section>
+
+          <section class="ingredients-container">
+            <div class="textarea-container">
+              <h2 class="title">ingredients</h2>
+              <textarea readonly>{{ post()?.ingradients }}</textarea>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <section style="margin-left: 30px">
+      <h2 class="title">Recipy</h2>
+      <textarea readonly>{{ post()?.recipy }}</textarea>
+    </section>
+    <footer class="gallery-footer">
+      <div class="gallery-item">
+        <button
+          class="gallery-button"
+          style="
+            background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/0cdad1872cbb27ec7c7c9d577a5c235ffccd83ffd7453ebc90dce4daf40fb9ce?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0');
+          "
+          aria-label="Gallery image 1"
+          (click)="addPost()"
+        ></button>
+      </div>
+
+      <div class="gallery-item">
+        <button
+          class="gallery-button"
+          style="
+            background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/17ae23b8dabc4ebbf6a2667f69626051b12533ac9048ff8df36885a5c59b4392?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0');
+          "
+          aria-label="Gallery image 2"
+          (click)="addLike()"
+        >
+          <!-- # #TODO html need more addition -->
+        </button>
+        <div class="counterx">
+          <p class="count">{{ this.post()?.likes }}</p>
+        </div>
+      </div>
+    </footer>
+
+    <section class="comments-section">
+      <hr class="divider" />
+      @for (comment of comments(); track $index) { @if (post()?.id ===
+      comment.pid) { @for (user of users(); track $index) { @if (comment.uid ===
+      user.uid) {
+      <article class="comment-card">
+        <img
+          loading="lazy"
+          [src]="user.imageURL"
+          class="user-avatar"
+          alt="User avatar"
+        />
+        <div class="comment-content">
+          <div class="comment-header">
+            <span class="user-name">{{ user.username }}</span>
+          </div>
+          <p class="comment-text">{{ comment.text }}</p>
+        </div>
+      </article>
+      } } } }
+      <input
+        type="text"
+        class="comment-input"
+        placeholder="Add a comment..."
+        id="comment-input"
+        [(ngModel)]="text"
+      />
+      <button class="add-comment" (click)="addComment()">Post</button>
+    </section>
+  </article>
+</main>

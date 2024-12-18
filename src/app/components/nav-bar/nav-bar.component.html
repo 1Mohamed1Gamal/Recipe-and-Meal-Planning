@@ -1,0 +1,89 @@
+<header class="header-container">
+  <nav class="navigation-container">
+    <div class="navigation-wrapper">
+      <img
+        loading="lazy"
+        [src]="auth.currentUser()?.imageURL"
+        class="profile-image"
+        alt="User profile"
+      />
+      <div class="nav-links-container">
+        <div class="nav-item active">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb5b18095c126406542d3f887cb6b88d41d453e8cc497609bb8534bcd8c1b860?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+            class="nav-icon"
+            alt=""
+          />
+          <a routerLink="/" routerLinkActive="active" class="nav-link">HOME</a>
+        </div>
+        <div class="nav-item">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3fb37c0cf9c0e0b3c44cea6cca1d05f014595a873522eef7634a1b5b7c3a845c?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+            class="nav-icon"
+            alt=""
+          />
+          <a routerLink="/plan" routerLinkActive="active" class="nav-link"
+            >MEAL PLANNING</a
+          >
+        </div>
+        <div class="nav-item">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3fb37c0cf9c0e0b3c44cea6cca1d05f014595a873522eef7634a1b5b7c3a845c?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+            class="nav-icon"
+            alt=""
+          />
+          <a routerLink="/show" routerLinkActive="active" class="nav-link"
+            >SHOW PLANNING</a
+          >
+        </div>
+
+        <div class="nav-item">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e245b421f2d2d3c02fcf3103190ea6f15e8cc2516051e058ab9655e8283d009a?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+            class="nav-icon"
+            alt=""
+          />
+          <a routerLink="/saved" routerLinkActive="active" class="nav-link"
+            >SAVED</a
+          >
+        </div>
+        <div class="nav-item">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/579130bb0684c1a2a62735c2a47bfa5f98cd7cd026afd740ba5afc27f60cc867?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+            class="nav-icon"
+            alt=""
+          />
+          <a routerLink="/profile" routerLinkActive="active" class="nav-link"
+            >USER PROFILE</a
+          >
+        </div>
+
+        <div class="nav-item logout">
+          @if (this.authService.currentUser()) {
+          <div class="button-group">
+            <button class="login-btn" routerLink="/add-post">ADD POST</button>
+          </div>
+
+          <div class="button-group">
+            <button class="logout-btn" (click)="logout()" routerLink="/login">
+              LOGOUT
+            </button>
+          </div>
+          } @else {
+          <div class="button-group">
+            <button class="login-btn" routerLink="/login">LOGIN</button>
+            <button class="register-btn" routerLink="/register">
+              REGISTER
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

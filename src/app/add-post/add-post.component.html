@@ -1,0 +1,115 @@
+<div class="profile-input-container">
+  <!-- <app-navigation-bar></app-navigation-bar> -->
+  <main class="main-content">
+    <section class="recipe-section">
+      <div class="upload-section">
+        <button
+          class="file-upload"
+          type="button"
+          aria-label="Upload file"
+          (click)="onUploadClick()"
+        >
+          <img
+            *ngIf="imageUrl() === ''; else uploadedImage"
+            [src]="defultIMG"
+            class="upload-icon"
+            alt="Default file preview"
+          />
+          <ng-template #uploadedImage>
+            <img
+              [src]="imageUrl()"
+              class="uploaded-icon"
+              alt="Uploaded file preview"
+            />
+          </ng-template>
+          @if (imageUrl() === '') {
+          <span class="upload-text">Browse Files to upload</span>
+          }
+        </button>
+        <input
+          id="fileInput"
+          class="visually-hidden"
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+      <div>
+        <div class="recipe-input">
+          <textarea
+            id="recipeText"
+            class="recipe-textarea"
+            placeholder="Enter recipe"
+            [(ngModel)]="recip"
+          ></textarea>
+
+          <textarea
+            id="recipeText"
+            class="recipe-textarea"
+            placeholder="Enter ingradient"
+            [(ngModel)]="ingradient"
+          ></textarea>
+        </div>
+        <div class="ingredients-section"></div>
+        <div class="ingredient-item">
+          <div class="ingredient-input-container">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="ingredient-input"
+              placeholder="Enter name"
+              [(ngModel)]="name"
+              required
+            />
+          </div>
+
+          <div class="ingredient-input-container">
+            <label for="review">Review</label>
+            <input
+              type="number"
+              name="review"
+              id="review"
+              class="ingredient-input"
+              placeholder="Enter review"
+              [(ngModel)]="review"
+              required
+            />
+          </div>
+
+          <div class="ingredient-input-container">
+            <label for="cuisine">Cuisine</label>
+            <input
+              type="text"
+              name="cuisine"
+              id="cuisine"
+              class="ingredient-input"
+              placeholder="Enter cuisine"
+              [(ngModel)]="cuisine"
+              required
+            />
+          </div>
+
+          <div class="ingredient-input-container">
+            <label for="category">Category</label>
+            <select
+              id="category"
+              name="category"
+              [(ngModel)]="category"
+              required
+            >
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch" selected>Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="snacks">Snacks</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="submit-button" (click)="addPost()">
+        Submit
+      </button>
+    </section>
+  </main>
+</div>

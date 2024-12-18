@@ -1,0 +1,81 @@
+<div class="profile-container">
+  <!-- Header -->
+
+  <!-- Profile Details -->
+  <div class="profile-details">
+    <h1>User Profile</h1>
+    <!-- Profile Image Section -->
+    <div class="profile-image">
+      <img
+        [src]="imageURL() || auth.currentUser()?.imageURL"
+        alt="Profile Picture"
+      />
+      <!-- Hidden file input to trigger image change -->
+      <input
+        type="file"
+        id="fileInput"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        style="display: none"
+      />
+
+      <!-- Button to trigger the hidden file input -->
+      <button class="edit-img-btn" (click)="onUploadClick()">
+        Change Picture
+      </button>
+    </div>
+
+    <!-- Profile Info Section -->
+    <div class="profile-info">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [value]="auth.currentUser()?.username" />
+
+      <label for="name">New username:</label>
+      <input type="text" id="name" [(ngModel)]="username" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" [value]="auth.currentUser()?.email" />
+    </div>
+    <div class="profile-actions">
+      <button id="editProfile" (click)="edit()">Edit Profile</button>
+    </div>
+  </div>
+
+  <!-- Profile Actions -->
+  <div class="profile-actions">
+    <button id="editProfile"></button>
+  </div>
+
+  <div class="box">
+    <h1>List of Names</h1>
+    <ul class="name-list">
+      @for (curr of auth.currentUser()?.userFollow; track $index) { @for (user
+      of userService.userSig(); track $index) { @if (curr === user.uid) {
+      <li class="name-item">
+        <img
+          [src]="user.imageURL"
+          style="
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+          "
+        />
+        <span>{{ user.username }}</span>
+        <button (click)="deletebutton(user.uid)">unfollow</button>
+      </li>
+      } } }
+    </ul>
+  </div>
+</div>
+
+@for (item of postService.postSig(); track $index) { @if (item.uid ===
+auth.currentUser()?.uid) {
+
+<app-post-detail
+  [post]="item"
+  [comments]="this.commentService.commentSig()"
+  [users]="this.userService.userSig()"
+></app-post-detail>
+
+} }

@@ -1,0 +1,48 @@
+<div class="auth-container">
+  <img
+    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1d9060d535bc6094f85d536aa6200dd28536b5dc9f863b3dbe9286340a701849?placeholderIfAbsent=true&apiKey=1f1356d0c2574f82958771cd44481ea0"
+    alt="Username icon"
+    class="auth-icon"
+    loading="lazy"
+  />
+
+  <form class="login-form" (ngSubmit)="onSubmit()">
+    @if(errorMessage){
+    <div class="error-message">
+      {{ errorMessage.split("/")[1] }}
+    </div>
+    }
+    <div class="input-group">
+      <label for="email" class="input-label"> Email </label>
+      <input
+        type="email"
+        class="auth-input"
+        aria-label="Enter your email"
+        [(ngModel)]="email"
+        name="email"
+      />
+
+      <label for="username" class="input-label"> Username </label>
+      <input
+        type="text"
+        class="auth-input"
+        aria-label="Enter your username"
+        [(ngModel)]="username"
+        name="username"
+      />
+
+      <label for="password" class="input-label"> Password </label>
+      <input
+        type="password"
+        class="auth-input"
+        aria-label="Enter your password"
+        name="password"
+        [(ngModel)]="password"
+      />
+
+      <button type="submit" class="submit-button" aria-label="Login">
+        <span>Enter</span>
+      </button>
+    </div>
+  </form>
+</div>

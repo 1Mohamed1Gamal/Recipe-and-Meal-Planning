@@ -1,0 +1,112 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Day Buttons */
+.day-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.day-button {
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.day-button:hover {
+  background-color: #a29bfe;
+  transform: translateY(-2px);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 10px 0 20px 0;
+  color: #333;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Individual Card */
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Image */
+.card-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Card Details */
+.card-details {
+  padding: 15px;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card-category,
+.card-cuisine {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 4px 0;
+}
+
+/* Add Button */
+.add-button {
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #34495e;
+}

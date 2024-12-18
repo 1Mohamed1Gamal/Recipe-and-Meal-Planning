@@ -1,0 +1,10 @@
+<!-- Single Card -->
+<div class="card">
+  <img [src]="post()?.imageURL" alt="Food Image" class="card-image" />
+  <div class="card-details">
+    <h3 class="card-title">Name: {{ post()?.name }}</h3>
+    <p class="card-category">Category: {{ post()?.category }}</p>
+    <p class="card-cuisine">Cuisine: {{ post()?.cuisine }}</p>
+  </div>
+  <button class="add-button" (click)="addInPlan()">Add</button>
+</div>

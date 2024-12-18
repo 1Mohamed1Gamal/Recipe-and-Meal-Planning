@@ -1,0 +1,231 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Profile Input Container */
+.profile-input-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navigation Bar */
+app-nav-bar {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Recipe Section */
+.recipe-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Upload Section */
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* File Upload Button */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.file-upload:hover {
+  background-color: #0056b3;
+}
+
+.upload-icon,
+.uploaded-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Text for Upload Button */
+.upload-text {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Hidden Input for File */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  border: 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Recipe Input */
+.recipe-input {
+  margin-top: 20px;
+}
+
+.recipe-textarea {
+  width: 30%;
+  height: 300px;
+  padding: 10px;
+  margin-left: 10%;
+  gap:10px;
+  font-size: 14px;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Ingredient Item */
+.ingredient-item {
+  display: flex;
+  align-self: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Container for Ingredients */
+.ingredient-input-container {
+  display: flex;
+  gap: 15px;
+  flex-direction: rows;
+}
+
+.ingredient-input-container label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Ingredient Input */
+.ingredient-input-container input.ingredient-input,
+select {
+  padding: 0.8rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Focused Ingredient Input and Select */
+.ingredient-input-container input.ingredient-input:focus,
+select:focus {
+  border-color: #4caf50; /* Green border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Placeholder Text */
+.ingredient-input-container input.ingredient-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Styling Dropdown Select */
+#category {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+/* Focused Category Dropdown */
+#category:focus {
+  border-color: #4caf90;
+  outline: none;
+}
+
+/* Options Styling for Select */
+#category option {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+}
+
+#category option:hover {
+  background-color: #e1f7d5; /* Highlight on hover */
+}
+
+#category option:checked {
+  background-color: #d0f7c1; /* Light green for selected option */
+}
+
+/* Submit Button */
+.submit-button {
+  align-self: flex-start;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-left:43%;
+  margin-top: 2%;
+  right: 70%;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}

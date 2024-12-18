@@ -1,0 +1,98 @@
+/* Container for filter controls */
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.filter-controls label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-controls select,
+.filter-controls input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filter-controls input[type="text"] {
+  background-color: #ffffff;
+  transition: border 0.3s ease;
+}
+
+.filter-controls input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filter-controls select {
+  background-color: #fff;
+  transition: border 0.3s ease;
+}
+
+.filter-controls select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filter-controls .filter-controls > div {
+  margin-top: 1rem;
+}
+
+.filter-controls .filter-controls div input[type="text"],
+.filter-controls .filter-controls div select {
+  max-width: 100%;
+}
+
+/* Posts Section */
+.filtered-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.filtered-posts .post-item {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.filtered-posts .post-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.filtered-posts .no-posts {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* No posts available message */
+.no-posts-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+  padding: 2rem 0;
+}
+
+/* Add a spinner or loading message for async data */
+.loading-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #007bff;
+  padding: 2rem 0;
+}
